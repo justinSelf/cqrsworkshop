@@ -28,7 +28,7 @@ var TasksViewModel = {
     $.ajax({
       url: '/tasks/task/' + task.id,
       type: 'GET',
-      context: this
+      context: TasksViewModel
     }).done(function (result) {
       var newTask = new Task(result.Id, result.Name, result.DueDate, result.Instructions);
       this.currentTask(newTask);
