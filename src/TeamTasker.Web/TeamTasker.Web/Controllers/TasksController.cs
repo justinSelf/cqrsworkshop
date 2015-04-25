@@ -17,7 +17,7 @@ namespace TeamTasker.Web.Controllers
             var task = new Task
             {
                 Name = name,
-                DueDate = dueDate,
+                DueDate = dueDate.Date,
                 Instructions = instructions
             };
 
