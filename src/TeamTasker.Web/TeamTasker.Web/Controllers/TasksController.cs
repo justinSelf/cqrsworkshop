@@ -46,7 +46,7 @@ namespace TeamTasker.Web.Controllers
         {
             var tasks = (from t in db.Tasks select new { Id = t.Id, Name = t.Name }).OrderBy(t => t.Name).ToList();
 
-            return Json(tasks);
+            return Json(tasks, JsonRequestBehavior.AllowGet);
         }
     }
 }
