@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Team";
+}
+
+<h2>Team</h2>
+
+<div class="container">
+    <div class="row">
+        <label>Name:</label> <input type="text" name="name" value="" data-bind="value: newTeamMemberName" />
+    </div>
+    <div class="row">
+        <button class="btn" data-bind="click: addTeamMember">Add Team Member</button>
+    </div>
+</div>
+
+<h2>Team Members</h2>
+<div class="container" data-bind="foreach: teamMembers">
+    <div class="row"><span class="team-member-name" data-bind="text: name"></span></div>
+</div>
+
+
+@Scripts.Render("~/bundles/knockout")
+
+<script src="../../Scripts/app/team.viewmodel.js"></script>
