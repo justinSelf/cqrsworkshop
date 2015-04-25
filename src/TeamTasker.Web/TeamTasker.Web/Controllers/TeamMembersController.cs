@@ -78,20 +78,20 @@ namespace TeamTasker.Web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/TeamMembers
-        [ResponseType(typeof(TeamMember))]
-        public IHttpActionResult PostTeamMember(TeamMember teamMember)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/TeamMembers
+        //[ResponseType(typeof(TeamMember))]
+        //public IHttpActionResult PostTeamMember(TeamMember teamMember)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.TeamMembers.Add(teamMember);
-            db.SaveChanges();
+        //    db.TeamMembers.Add(teamMember);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = teamMember.Id }, teamMember);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = teamMember.Id }, teamMember);
+        //}
 
         // DELETE: api/TeamMembers/5
         [ResponseType(typeof(TeamMember))]

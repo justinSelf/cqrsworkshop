@@ -7,7 +7,7 @@ var teamViewModel = {
   addTeamMember: function () {
 
     $.ajax({
-      url: '/api/teammembers/add',
+      url: '/teammember/add',
       data: { name: teamViewModel.newTeamMemberName() },
       type: 'POST',
       context: this
