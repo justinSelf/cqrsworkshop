@@ -33,7 +33,10 @@
             <span class="task-label col-lg-3">Instructions:</span> <span class="col-lg-9" data-bind="text: currentTask().instructions"></span>
         </div>
         <div class="row">
-            <select data-bind="options: teamMembers, optionsText: function(item){return item.Name;}"></select> <span class="glyphicon glyphicon-plus btn btn-success"></span>
+            <select data-bind="options: teamMembers, optionsText: function(item){return item.Name;}, value: selectedMember"></select> <span class="glyphicon glyphicon-plus btn btn-success" data-bind="click: assignMember"></span>
+        </div>
+        <div class="row" data-bind="foreach: currentTask().assignedMembers">
+            <div data-bind="text: Name"></div>
         </div>
     </div>
 </div>

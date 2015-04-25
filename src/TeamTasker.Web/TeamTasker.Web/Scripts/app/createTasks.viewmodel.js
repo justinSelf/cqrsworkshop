@@ -4,7 +4,7 @@
   this.dueDate = dueDate;
   this.instructions = instructions;
   this.status = status;
-  this.assignedMembers = assignedMembers;
+  this.assignedMembers = ko.observableArray(assignedMembers);
 };
 
 
@@ -14,6 +14,16 @@ var TasksViewModel = {
   instructions: ko.observable(),
   tasks: ko.observableArray(),
   teamMembers: ko.observableArray(),
+  assignMember: function () {
+    $.ajax({
+      url: '/tasks/assign',
+      data: { taskId: this.currentTask().id, memberId: this.selectedMember().Id },
+      type: 'POST'
+    }).done(function () {
+      TasksViewModel.currentTask().assignedMembers.push(TasksViewModel.selectedMember());
+    });
+  },
+  selectedMember: ko.observable(),
   createTask: function () {
     $.ajax({
       url: '/tasks/create',
@@ -32,7 +42,7 @@ var TasksViewModel = {
       type: 'GET',
       context: TasksViewModel
     }).done(function (result) {
-      var newTask = new Task(result.Id, result.Name, result.DueDate, result.Instructions);
+      var newTask = new Task(result.Id, result.Name, result.DueDate, result.Instructions, '', result.AssignedMembers);
       this.currentTask(newTask);
     });
   }
