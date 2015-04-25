@@ -59,7 +59,7 @@ namespace TeamTasker.Web.Controllers
                             DueDate = t.DueDate, 
                             Instructions = t.Instructions, 
                             AssignedMembers = t.AssignedMembers.Select(m => new { m.Name }).ToList() 
-                        });
+                        }).Single();
 
             return Json(task, JsonRequestBehavior.AllowGet);
         }
