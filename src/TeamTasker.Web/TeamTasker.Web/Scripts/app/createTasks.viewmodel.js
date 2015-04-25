@@ -13,7 +13,14 @@ var TasksViewModel = {
   instructions: ko.observable(),
   tasks: ko.observableArray(),
   createTask: function () {
-    alert('creating task');
+    $.ajax({
+      url: '/tasks/create',
+      data: { name: this.name(), dueDate: this.dueDate(), instructions: this.instructions() },
+      type: 'POST',
+      context: this
+    }).done(function () {
+      this.tasks.push(new Task(this.name(), this.dueDate(), this.instructions()));
+    });
   }
 }
 

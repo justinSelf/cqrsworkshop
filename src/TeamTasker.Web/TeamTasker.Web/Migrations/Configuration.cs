@@ -10,7 +10,6 @@ namespace TeamTasker.Web.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "TeamTasker.Web.Domain.TaskerContext";
         }
 
         protected override void Seed(TeamTasker.Web.Domain.TaskerContext context)
