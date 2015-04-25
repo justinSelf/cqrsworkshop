@@ -24,8 +24,15 @@ var TasksViewModel = {
     });
   },
   currentTask: ko.observable({}),
-  setCurrentTask: function (task) {
-    TasksViewModel.currentTask(task);
+  getTask: function (task) {
+    $.ajax({
+      url: '/tasks/task/' + task.id,
+      type: 'GET',
+      context: this
+    }).done(function (result) {
+      var newTask = new Task(result.Id, result.Name, result.DueDate, result.Instructions);
+      this.currentTask(newTask);
+    });
   }
 }
 
