@@ -63,5 +63,28 @@ namespace TeamTasker.Web.Controllers
 
             return Json(task, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult Publish(int Id)
+        {
+            var task = db.Tasks.Where(t => t.Id == Id).Single();
+            task.IsPublished = true;
+
+            db.SaveChanges();
+
+            return Json("success");
+        }
+
+        [HttpPost]
+        public JsonResult Complete(int Id)
+        {
+            var task = db.Tasks.Where(t => t.Id == Id).Single();
+            task.CompletionDate = DateTime.UtcNow;
+            task.Status = 1;
+
+            db.SaveChanges();
+
+            return Json("success");
+        }
     }
 }
