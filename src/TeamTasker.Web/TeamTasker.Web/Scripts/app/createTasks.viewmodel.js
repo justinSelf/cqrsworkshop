@@ -1,6 +1,6 @@
 ﻿function Task(id, name, dueDate, instructions, status, assignedMembers) {
   this.id = id;
-  this.name = name;
+  this.name = ko.observable(name);
   this.dueDate = dueDate;
   this.instructions = instructions;
   this.status = status;
@@ -22,6 +22,10 @@ var TasksViewModel = {
     }).done(function (id) {
       this.tasks.push(new Task(id, this.name(), this.dueDate(), this.instructions()));
     });
+  },
+  currentTask: ko.observable({}),
+  setCurrentTask: function (task) {
+    TasksViewModel.currentTask(task);
   }
 }
 

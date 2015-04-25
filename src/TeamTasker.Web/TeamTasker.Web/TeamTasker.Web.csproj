@@ -238,6 +238,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\createTasks.viewmodel.js" />
     <Content Include="Scripts\app\team.viewmodel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -317,7 +318,7 @@
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Team.cshtml" />
-    <Content Include="Views\Home\Tasks.cshtml" />
+    <Content Include="Views\Home\Task.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

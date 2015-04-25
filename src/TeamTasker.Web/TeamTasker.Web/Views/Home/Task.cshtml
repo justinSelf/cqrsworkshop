@@ -19,14 +19,16 @@
     <div class="col-lg-6">
         <h2>Tasks</h2>
         <div class="container" data-bind="foreach: tasks">
-            <div class="row">
+            <div class="row" data-bind=" click: $parent.setCurrentTask">
                 <div class="task col-lg-8"><span class="task-name" data-bind="text: name"></span></div>
             </div>
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="row">
-            <span class="label col-lg-4">Name:</span> <span class="col-lg-8" data-bind="text: currentTask().name"></span>
+        <div class="row" data-bind="visible: currentTask().name !== undefined">
+            <span class="task-label col-lg-3">Name:</span> <span class="col-lg-9" data-bind="text: currentTask().name"></span>
+            <span class="task-label col-lg-3">Due Date:</span> <span class="col-lg-9" data-bind="text: currentTask().dueDate"></span>
+            <span class="task-label col-lg-3">Instructions:</span> <span class="col-lg-9" data-bind="text: currentTask().Instructions"></span>
         </div>
     </div>
 </div>
