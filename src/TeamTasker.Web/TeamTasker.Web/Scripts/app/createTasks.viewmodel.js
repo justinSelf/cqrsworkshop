@@ -17,3 +17,4 @@ var TasksViewModel = {
   }
 }
 
+ko.applyBindings(TasksViewModel, document.getElementById('create-task'));

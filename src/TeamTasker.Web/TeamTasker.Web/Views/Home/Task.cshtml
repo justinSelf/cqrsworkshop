@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Tasks";
+}
+
+<h2>Tasks</h2>
+
+<div class="container" id="create-task">
+    <div class="row">
+        <label class="col-md-2">Name:</label> <input class="col-md-2" type="text" name="name" value="" data-bind="value: name" />
+        <label class="col-md-2">Due Date:</label> <input class="col-md-2" type="text" name="name" value="" data-bind="value: dueDate" />
+    </div>
+    <div class="row">
+        <label class="col-md-2">Instructions:</label> <input class="col-md-10" type="text" name="name" value="" data-bind="value: instructions" />
+    </div>
+    <div class="row">
+        <div class="btn btn-default" data-bind="click: createTask">Create Task</div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="../../Scripts/app/createtasks.viewmodel.js"></script>
+}

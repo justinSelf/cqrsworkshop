@@ -7,16 +7,16 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Manage Team Members</h2>
-        <p>Go here to add members to your team. @Html.ActionLink("Manage Team Members&raquo;", "Team") </p>
+        <p>Go here to add members to your team.</p>
+        <p> @Html.ActionLink("Manage Team Members »", "Team", null, new { @class = "btn btn-default" }) </p>
     </div>
 
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
-            ASP.NET Single Page Application (SPA) helps you build applications that include significant client-side interactions using HTML, CSS, and JavaScript.
-            It's now easier than ever before to getting started writing highly interactive web applications.
+            Let's start adding tasks here:
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=273732">Learn more &raquo;</a></p>
+        <p> @Html.ActionLink("Manage Team Members »", "Task", null, new { @class = "btn btn-default" }) </p>
     </div>
 
     <div class="col-md-4">
