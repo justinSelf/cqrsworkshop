@@ -14,6 +14,6 @@ namespace TeamTasker.Web.Domain
         [Required]
         public string Name { get; set; }
 
-        public List<Task> AssignedTasks { get; set; }
+        public virtual ICollection<Task> AssignedTasks { get; set; }
     }
 }

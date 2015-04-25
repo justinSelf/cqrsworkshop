@@ -26,6 +26,6 @@ namespace TeamTasker.Web.Domain
         
         public string Instructions { get; set; }
         
-        public List<TeamMember> AssignedMembers { get; set; }
+        public virtual ICollection<TeamMember> AssignedMembers { get; set; }
     }
 }
