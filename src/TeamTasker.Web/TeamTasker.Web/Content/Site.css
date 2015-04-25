@@ -35,13 +35,17 @@ textarea {
     }
 }
 
-.team-member {
+.task, .team-member {
     padding: 6px;
     border-radius: 5px;
     border: solid 1px #CCC;
     margin-bottom: 3px;
 }
 
-    .team-member:hover {
+    .task:hover, .team-member:hover {
         background-color: #DCE3FF;
+    }
+
+    .task:hover {
+        cursor: pointer;
     }

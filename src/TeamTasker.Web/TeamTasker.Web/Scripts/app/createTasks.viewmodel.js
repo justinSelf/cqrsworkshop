@@ -32,7 +32,8 @@ $.ajax({
   type: 'GET',
   context: TasksViewModel
 }).done(function (results) {
-  $.foreach(results, function (task) {
-    this.tasks.push(new Task(task.id, task.name))
-  }, this)
+  for (var i = 0; i < results.length; i++) {
+    var task = results[i];
+    this.tasks.push(new Task(task.Id, task.Name));
+  }
 });
