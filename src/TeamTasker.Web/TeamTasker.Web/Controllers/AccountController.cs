@@ -12,7 +12,6 @@ using TeamTasker.Web.Models;
 
 namespace TeamTasker.Web.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

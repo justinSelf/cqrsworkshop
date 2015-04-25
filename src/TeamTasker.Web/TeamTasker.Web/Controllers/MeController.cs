@@ -14,7 +14,6 @@ using TeamTasker.Web.Models;
 
 namespace TeamTasker.Web.Controllers
 {
-    [Authorize]
     public class MeController : ApiController
     {
         private ApplicationUserManager _userManager;

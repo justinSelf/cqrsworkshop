@@ -10,7 +10,6 @@ using TeamTasker.Web.Models;
 
 namespace TeamTasker.Web.Controllers
 {
-    [Authorize]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
