@@ -16,8 +16,14 @@ namespace TeamTasker.Web.Domain
 
         public DateTime DueDate { get; set; }
 
-        public string Instructions { get; set; }
+        public int Status { get; set; }
 
+        public bool IsPublished { get; set; }
+
+        public DateTime CompletionDate { get; set; }
+        
+        public string Instructions { get; set; }
+        
         public List<TeamMember> AssignedMembers { get; set; }
     }
 }

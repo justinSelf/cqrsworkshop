@@ -31,6 +31,6 @@ $.ajax({
   context: teamViewModel
 }).done(function (result) {
   for (var i = 0; i < result.length; i++) {
-    this.teamMembers.push(new TeamMember(result[i].Name));
+    this.teamMembers.push(new TeamMember(result[i]));
   }
 });

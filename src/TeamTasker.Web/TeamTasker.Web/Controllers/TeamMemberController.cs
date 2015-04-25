@@ -25,7 +25,7 @@ namespace TeamTasker.Web.Controllers
         [HttpGet]
         public JsonResult AllTeamMembers()
         {
-            var teamMembers = db.TeamMembers;
+            var teamMembers = db.TeamMembers.Select(m => m.Name).ToList();
 
             return Json(teamMembers, JsonRequestBehavior.AllowGet);
         }
