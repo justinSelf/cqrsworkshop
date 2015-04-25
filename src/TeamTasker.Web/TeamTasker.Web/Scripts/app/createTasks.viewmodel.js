@@ -28,7 +28,7 @@ var TasksViewModel = {
 ko.applyBindings(TasksViewModel, document.getElementById('create-task'));
 
 $.ajax({
-  url: 'tasks/alltasks',
+  url: '/tasks/AllTasks',
   type: 'GET',
   context: TasksViewModel
 }).done(function (results) {
