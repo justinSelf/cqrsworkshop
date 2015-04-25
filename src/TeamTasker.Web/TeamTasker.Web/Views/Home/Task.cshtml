@@ -24,11 +24,16 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
-        <div class="row" data-bind="visible: currentTask().name !== undefined">
-            <span class="task-label col-lg-3">Name:</span> <span class="col-lg-9" data-bind="text: currentTask().name"></span>
+    <div class="col-lg-6" data-bind="visible: currentTask().name !== undefined">
+        <div class=" row">
+            <span class=" task-label col-lg-3">
+                Name:
+            </span> <span class="col-lg-9" data-bind="text: currentTask().name"></span>
             <span class="task-label col-lg-3">Due Date:</span> <span class="col-lg-9" data-bind="text: currentTask().dueDate"></span>
             <span class="task-label col-lg-3">Instructions:</span> <span class="col-lg-9" data-bind="text: currentTask().instructions"></span>
+        </div>
+        <div class="row">
+            <select data-bind="options: teamMembers, optionsText: function(item){return item.Name;}"></select> <span class="glyphicon glyphicon-plus btn btn-success"></span>
         </div>
     </div>
 </div>

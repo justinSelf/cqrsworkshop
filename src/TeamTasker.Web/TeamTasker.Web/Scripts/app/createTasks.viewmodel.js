@@ -13,6 +13,7 @@ var TasksViewModel = {
   dueDate: ko.observable(),
   instructions: ko.observable(),
   tasks: ko.observableArray(),
+  teamMembers: ko.observableArray(),
   createTask: function () {
     $.ajax({
       url: '/tasks/create',
@@ -23,6 +24,7 @@ var TasksViewModel = {
       this.tasks.push(new Task(id, this.name(), this.dueDate(), this.instructions()));
     });
   },
+
   currentTask: ko.observable({}),
   getTask: function (task) {
     $.ajax({
@@ -34,9 +36,8 @@ var TasksViewModel = {
       this.currentTask(newTask);
     });
   }
-}
+};
 
-ko.applyBindings(TasksViewModel, document.getElementById('create-task'));
 
 $.ajax({
   url: '/tasks/AllTasks',
@@ -48,3 +49,16 @@ $.ajax({
     this.tasks.push(new Task(task.Id, task.Name));
   }
 });
+
+$.ajax({
+  url: '/teammember/AllTeamMembers',
+  type: 'GET',
+  context: TasksViewModel
+}).done(function (teamMembers) {
+  for (var i = 0; i < teamMembers.length; i++) {
+    var teamMember = teamMembers[i];
+    this.teamMembers.push(teamMember);
+  }
+});
+
+ko.applyBindings(TasksViewModel, document.getElementById('create-task'));
