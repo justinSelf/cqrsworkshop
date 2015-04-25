@@ -17,10 +17,10 @@ namespace TeamTasker.Web.Controllers
         private TaskerContext db = new TaskerContext();
 
         [HttpPost]
-        [Route("/add")]
+        [Route("add")]
         public IHttpActionResult Add([FromBody] string name)
         {
-
+            return Ok();
         }
 
 

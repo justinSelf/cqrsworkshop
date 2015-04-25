@@ -5,7 +5,17 @@
 
 var teamViewModel = {
   addTeamMember: function () {
-    this.teamMembers.push(new TeamMember(this.newTeamMemberName()));
+
+    $.ajax({
+      url: '/api/teammembers/add',
+      data: { name: teamViewModel.newTeamMemberName() },
+      type: 'POST',
+      context: this
+    }).done(function () {
+      this.teamMembers.push(new TeamMember(this.newTeamMemberName()));
+    });
+
+
   },
   newTeamMemberName: ko.observable(),
   teamMembers: ko.observableArray()
