@@ -24,3 +24,13 @@ var teamViewModel = {
 
 
 ko.applyBindings(teamViewModel);
+
+$.ajax({
+  url: '/teammember/allteammembers',
+  type: 'GET',
+  context: teamViewModel
+}).done(function (result) {
+  for (var i = 0; i < result.length; i++) {
+    this.teamMembers.push(new TeamMember(result[i].Name));
+  }
+});
