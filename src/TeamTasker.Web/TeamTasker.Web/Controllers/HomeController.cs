@@ -16,5 +16,10 @@ namespace TeamTasker.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Task()
+        {
+            return View();
+        }
     }
 }
