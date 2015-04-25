@@ -48,5 +48,20 @@ namespace TeamTasker.Web.Controllers
 
             return Json(tasks, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult Task(int id)
+        {
+            var task = (from t in db.Tasks where t.Id == id 
+                        select new { 
+                            Id = t.Id, 
+                            Name = t.Name, 
+                            DueDate = t.DueDate, 
+                            Instructions = t.Instructions, 
+                            AssignedMembers = t.AssignedMembers.Select(m => new { m.Name }).ToList() 
+                        });
+
+            return Json(task, JsonRequestBehavior.AllowGet);
+        }
     }
 }
