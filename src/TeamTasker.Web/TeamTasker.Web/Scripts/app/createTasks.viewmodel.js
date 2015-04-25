@@ -1,6 +1,6 @@
 ﻿function Task(id, name, dueDate, instructions, status, assignedMembers) {
   this.id = id;
-  this.name = name;
+  this.name = ko.observable(name);
   this.dueDate = dueDate;
   this.instructions = instructions;
   this.status = status;
@@ -21,6 +21,17 @@ var TasksViewModel = {
       context: this
     }).done(function (id) {
       this.tasks.push(new Task(id, this.name(), this.dueDate(), this.instructions()));
+    });
+  },
+  currentTask: ko.observable({}),
+  getTask: function (task) {
+    $.ajax({
+      url: '/tasks/task/' + task.id,
+      type: 'GET',
+      context: this
+    }).done(function (result) {
+      var newTask = new Task(result.Id, result.Name, result.DueDate, result.Instructions);
+      this.currentTask(newTask);
     });
   }
 }
